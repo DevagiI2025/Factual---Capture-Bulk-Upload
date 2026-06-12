@@ -2,7 +2,7 @@
 MSCI Annual Update — Bulk Upload UI
 ====================================
 Run:  streamlit run app.py
-Requires annual_update_processor_v19.py in the same folder.
+Requires annual_update_processor_v20.py in the same folder.
 Templates are bundled — team only needs to upload Extraction CSV + DVV file.
 """
 
@@ -1266,8 +1266,8 @@ if "upload_key" not in st.session_state:
 def load_processor():
     import importlib.util
     candidates = [
-        Path(__file__).parent / "annual_update_processor_v19.py",
-        Path.cwd() / "annual_update_processor_v19.py",
+        Path(__file__).parent / "annual_update_processor_v20.py",
+        Path.cwd() / "annual_update_processor_v20.py",
     ]
     for p in candidates:
         if p.exists():
@@ -1277,7 +1277,7 @@ def load_processor():
             # Stash the original format_worksheet so we can always restore it
             mod._original_format_worksheet = mod.format_worksheet
             return mod, None
-    return None, "annual_update_processor_v19.py not found — place it next to app.py"
+    return None, "annual_update_processor_v20.py not found — place it next to app.py"
 
 
 # ══════════════════════════════════════════════════════════════════════════════
